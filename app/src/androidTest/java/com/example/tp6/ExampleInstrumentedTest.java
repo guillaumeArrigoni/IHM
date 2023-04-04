@@ -1,4 +1,3 @@
-package com.example.tp6;
 
 import android.content.Context;
 
