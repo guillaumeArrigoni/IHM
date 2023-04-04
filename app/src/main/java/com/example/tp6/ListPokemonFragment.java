@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -90,11 +91,6 @@ public class ListPokemonFragment extends Fragment {
                 // Update rank of Pokemons
                 Pokemon.boost(seekBarValue);
                 adapter.notifyDataSetChanged();
-
-                // Notify activity
-                if (mCallback != null) {
-                    mCallback.onFragmentNotify("ListPokemonFragment: SeekBar value changed");
-                }
             }
 
             @Override
@@ -105,16 +101,6 @@ public class ListPokemonFragment extends Fragment {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-
-        // Set up item click listener
-        adapter.setOnItemClickListener(new PokemonAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(Pokemon pokemon) {
-                // Log Pokemon info
-                Log.d("ListPokemonFragment", "Clicked on Pokemon " + pokemon.getName());
-            }
-        });
-
         return view;
     }
 }

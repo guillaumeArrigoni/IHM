@@ -1,5 +1,6 @@
 package com.example.tp6;
 
+import com.squareup.picasso.Picasso;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHolder> {
@@ -17,10 +19,20 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
     private Context mContext;
     private int seekBarValue ;
 
+    private HashMap<Pokemon, String> link = new HashMap<>();
+
     public PokemonAdapter(Context context, List<Pokemon> myDataset, int seekBarValue) {
         this.mContext = context;
         this.mDataset = myDataset;
         this.seekBarValue = seekBarValue;
+    }
+
+    private void generatePicture(){
+        for (Pokemon pokemon : mDataset) {
+            this.link.put(pokemon, "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemon.getId() + ".png");
+            Picasso.get()
+                    .load(link.get(pokemon));
+        }
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -29,14 +41,14 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
 
         public ViewHolder(View v) {
             super(v);
-            mNameTextView = v.findViewById(R.id.name_textview);
-            mRankTextView = v.findViewById(R.id.rank_textview);
+            mNameTextView = v.findViewById(R.id.pokemon_name);
+            mRankTextView = v.findViewById(R.id.pokemon_rank);
         }
     }
 
     @Override
     public PokemonAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.pokemon_list_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.pokemon_list, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }

@@ -42,6 +42,14 @@ public class Pokemon {
         return completeList;
     }
 
+    public Map<String, String> getId() {
+        return this.name;
+    }
+
+    public void setPicture(String pictureURL) {
+        this.pictureURL = pictureURL;
+    }
+
     //TODO some methods
 
 
