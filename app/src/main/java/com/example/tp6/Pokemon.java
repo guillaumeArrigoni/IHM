@@ -38,6 +38,10 @@ public class Pokemon {
     public Pokemon () {
     }
 
+    public static ArrayList<Pokemon> getAll() {
+        return completeList;
+    }
+
     //TODO some methods
 
 
