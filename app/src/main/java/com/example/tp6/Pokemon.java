@@ -26,7 +26,7 @@ import java.util.Map;
  * @author Frédéric RALLO - March 2023
  * @author
  */
-public class Pokemon {
+public class Pokemon implements Comparable {
     public static String language;
     private static ArrayList<Pokemon> completeList;
     private int id;
@@ -68,6 +68,29 @@ public class Pokemon {
                 pokemon.base.put(Stats.SPEED.toString(), pokemon.base.get(Stats.SPEED.toString()) + boost);
             }
         });
+    }
+
+    @Override
+    public int compareTo(Object object) {
+        if(!(object instanceof Pokemon)){
+            return -2;
+        }
+        Pokemon pokemon = (Pokemon) object;
+        int scoreP1 = this.getRank();
+        int scoreP2 = pokemon.getRank();
+        if(scoreP1-scoreP2 >0){
+            return 1;
+        }
+        if(scoreP1-scoreP2 ==0){
+            return 0;
+        }
+        else{
+            return -1;
+        }
+    }
+
+    public static ArrayList<Pokemon> getCompleteList() {
+        return completeList;
     }
 }
 

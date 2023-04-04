@@ -35,7 +35,7 @@
         />
 
     <Spinner
-        android:id="@+id/language_spinner"
+        android:id="@+id/langue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"

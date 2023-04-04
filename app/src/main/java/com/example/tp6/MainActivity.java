@@ -65,15 +65,9 @@ public class MainActivity extends AppCompatActivity implements PostExecuteActivi
 
 
     @Override
-    public void onPostExecute(List<Pokemon> pokemonList) {
-        super.onPostExecute(pokemonList);
-        MainActivity.this.pokemonList = pokemonList;
-        if (pokemonList != null && pokemonList.size() > 0) {
-            Pokemon firstPokemon = pokemonList.get(0);
-            Log.d("MainActivity", "First Pokemon: " + firstPokemon.getName());
-            String selectedLanguage = (String) languageSpinner.getSelectedItem();
-            Log.d("MainActivity", "Selected language: " + selectedLanguage);
-        }
+    public void onPostExecute(List<Pokemon> itemList) {
+        Pokemon pokemonFirst = itemList.get(0);
+        Log.d(TAG,"First pokemon = " + pokemonFirst.getName());
     }
 
 }
