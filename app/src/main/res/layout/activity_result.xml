@@ -19,4 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/purple_700"/>
 
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
