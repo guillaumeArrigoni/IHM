@@ -28,20 +28,22 @@ import java.util.Map;
  */
 public class Pokemon {
     public static String language;
-    private static ArrayList<Object> completeList;
+    private static ArrayList<Pokemon> completeList;
     private int id;
     private Map<String, String> name; //depends of settings language
     private final List<Types> type = new ArrayList<>();
     private Map<String, Integer> base;  //json name is base
     private String pictureURL;
-    
-    
+
+    public Pokemon () {
+    }
+
     //TODO some methods
 
 
     /**
-    * the best pokemon are those with the highest rank value
-    **/
+     * the best pokemon are those with the highest rank value
+     **/
     public Integer getRank(){
         return 4*base.get("Speed") + 3*base.get("Attack") + 2*base.get("Defense")  + base.get("HP");
     }
@@ -53,9 +55,9 @@ public class Pokemon {
 
     @Override
     public String toString() {
-         return "Pokemon{ id=" + id + ", name=" + getName() + ", type=" + type + ", features=" + base + '}';
+        return "Pokemon{ id=" + id + ", name=" + getName() + ", type=" + type + ", features=" + base + '}';
     }
-    
+
     /**
      * change speed of all NORMAL Type Pokemon
      * @param boost
@@ -63,7 +65,7 @@ public class Pokemon {
     public static void boost(int boost) {
         completeList.forEach(pokemon -> {
             if(pokemon.type.contains(Types.NORMAL)) {
-                pokemon.base.put(Stats.Speed.toString(), pokemon.base.get(Stats.Speed.toString()) + boost);
+                pokemon.base.put(Stats.SPEED.toString(), pokemon.base.get(Stats.SPEED.toString()) + boost);
             }
         });
     }
@@ -80,16 +82,15 @@ enum Stats {
     SPEED(0);
     private int value;
 
-
+    Stats(int value) {
+        this.value = value;
+    }
     public int getValue() {
         return value;
     }
 
     public void setValue(int value) {
         this.value = value;
-    }
-    Bases(int value) {
-        this.value=value;
     }
 }
 
