@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:textSize="25dp"
-        android:text="-ADAPTER \n -SINGLETON \n -GRAGMENTS \n -OBSERVER/OBSERVABLE"
+        android:text="-ADAPTER \n -SINGLETON \n -FRAGMENTS \n -OBSERVER/OBSERVABLE"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="20dp"
