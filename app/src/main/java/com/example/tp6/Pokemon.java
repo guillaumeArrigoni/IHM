@@ -28,6 +28,7 @@ import java.util.Map;
  */
 public class Pokemon {
     public static String language;
+    private static ArrayList<Object> completeList;
     private int id;
     private Map<String, String> name; //depends of settings language
     private final List<Types> type = new ArrayList<>();
@@ -60,7 +61,7 @@ public class Pokemon {
      * @param boost
      */
     public static void boost(int boost) {
-        completeList.forEach( pokemon -> {
+        completeList.forEach(pokemon -> {
             if(pokemon.type.contains(Types.NORMAL)) {
                 pokemon.base.put(Stats.Speed.toString(), pokemon.base.get(Stats.Speed.toString()) + boost);
             }

@@ -1,8 +1,0 @@
-<resources>
-    <string-array name="languages_array">
-        <item>Français</item>
-        <item>Anglais</item>
-        <item>Espagnol</item>
-        <item>Mandarin</item>
-    </string-array>
-</resources>
