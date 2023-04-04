@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements PostExecuteActivi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        languageSpinner = findViewById(R.id.langue);
+        languageSpinner = findViewById(R.id.language_spinner);
         getPokemonsButton = findViewById(R.id.jouer);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements PostExecuteActivi
         Pokemon pokemonFirst = itemList.get(0);
         Log.d(TAG,"First pokemon = " + pokemonFirst.getName());
     }
-
 
     @Override
     public void onPostExecute(List<Pokemon> itemList) {
